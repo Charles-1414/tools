@@ -26,5 +26,8 @@ addEventListener('fetch', event => {
     var path=url.substr(url.indexOf(domain)+domain.length,url.length-domain.length-url.indexOf(domain));
     const destdomain="charles14.xyz"; // *** change this to your main domain
     var desturl="http://"+subdomain+"."+destdomain+path;
+    if(subdomain==""){//root
+      desturl="http://"+destdomain+path;
+    }
     return Response.redirect(desturl, 301);
   }
